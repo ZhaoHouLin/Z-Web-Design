@@ -5,18 +5,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    color: {
-      R: 35,
-      G: 35,
-      B: 35
+    colors: {
+      R: 0,
+      G: 0,
+      B: 0
     },
-    colorData: ["22","22","22"],
+    colorData: ["00","00","00"],
     hexCode: "#",
     open: false
   },
   mutations: {
     changeColor(state,payload) {
-      Vue.set(state.colorData, payload.id,payload.num)
+      Vue.set(state.colorData, payload.id, payload.num)
     },  
     openOrNot(state,o) {
       state.open = o

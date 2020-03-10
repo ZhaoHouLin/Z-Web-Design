@@ -1,18 +1,11 @@
 <template lang="pug">
 .rgbToHex(:style='bgc' ,:class="{isOpen: $store.state.open}")
   .colorAll
-    .colorR
-      span R
-      input(@input='changeColor(color.R,id=0)', v-model='color.R' type="range" min="0" max="255" step="1" value="0")
-      label {{color.R}}
-    .colorG
-      span G
-      input(@input='changeColor(color.G,id=1)', v-model='color.G' type="range" min="0" max="255" step="1" value="0")
-      label {{color.G}}
-    .colorB
-      span B
-      input(@input='changeColor(color.B,id=2)', v-model='color.B' type="range" min="0" max="255" step="1" value="0")
-      label {{color.B}}
+    .color(v-for='(color,key,id) in colors')
+      span {{key}}
+      input(@mousemove='changeColor(color,id)' v-model='colors[key]' type="range" min="0" max="255" step="1" value="0")
+      label {{color}}
+
   .colorCode {{colorCode}}
 </template>
 
@@ -38,7 +31,7 @@ export default {
     
   },
   computed: {
-    ...mapState(['color','rCode','gCode','bCode','hexCode']),
+    ...mapState(['colors','rCode','gCode','bCode','hexCode']),
     colorCode() {
      return this.$store.getters.colorCode
     },
@@ -64,7 +57,7 @@ export default {
   flex-direction column
   .colorAll
     flexCenter()
-    .colorR,.colorG,.colorB
+    .color
       size(auto,auto)
       flexCenter()
       flex-direction column
