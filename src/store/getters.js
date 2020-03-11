@@ -1,7 +1,7 @@
 export default {
   colorCode(state) {
     state.hexCode = "#"
-    state.hexCode += state.colorData.join('')
+    state.hexCode += state.colorHexData.join('')
     return state.hexCode
   },
   bgc(state) {

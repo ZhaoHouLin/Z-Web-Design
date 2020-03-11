@@ -12,7 +12,7 @@ const state = {
     G: 0,
     B: 0
   },
-  colorData: ["00", "00", "00"],
+  colorHexData: ["00", "00", "00"],
   hexCode: "#",
   open: false
 }

@@ -3,7 +3,7 @@
   .colorAll
     .color(v-for='(color,key,id) in colors')
       span {{key}}
-      input(@mousemove='changeColor(color,id)' v-model='colors[key]' type="range" min="0" max="255" step="1" value="0")
+      input(@mousemove='colorChange(color,id)' v-model='colors[key]' type="range" min="0" max="255" step="1" value="0")
       label {{color}}
 
   .colorCode {{colorCode}}
@@ -18,16 +18,19 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['changeColor']),
-    changeColor(code,id) {
-      this.$store.commit('changeColor',{num:this.numToHex(+code),id:id})
+    ...mapActions(['changeCode']),
+    colorChange(rgbCode,id) {
+        this.changeCode({
+        hexCode: this.numToHex(+rgbCode),
+        id: id
+      })
     },
-    numToHex(num) {
-      num = num.toString(16);
-      if (num.length < 2) {
-        num = "0" + num;
+    numToHex(rgbCode) {
+      let hexCode = rgbCode.toString(16);
+      if (hexCode.length < 2) {
+        hexCode = "0" + hexCode;
       }
-      return num
+      return hexCode
     },
     
   },

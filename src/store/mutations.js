@@ -1,8 +1,8 @@
 import Vue from 'vue'
 
 export default {
-  changeColor(state, payload) {
-    Vue.set(state.colorData, payload.id, payload.num)
+  changeCodeData(state, payload) {
+    Vue.set(state.colorHexData, payload.id, payload.hexCode)
   },
   openOrNot(state, turn) {
     state.open = turn
