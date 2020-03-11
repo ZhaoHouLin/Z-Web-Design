@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {mapState,mapMutations} from 'vuex'
+import {mapState,mapMutations,mapActions,mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -18,6 +18,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['changeColor']),
     changeColor(code,id) {
       this.$store.commit('changeColor',{num:this.numToHex(+code),id:id})
     },
@@ -31,13 +32,8 @@ export default {
     
   },
   computed: {
-    ...mapState(['colors','rCode','gCode','bCode','hexCode']),
-    colorCode() {
-     return this.$store.getters.colorCode
-    },
-    bgc() {
-      return this.$store.getters.bgc
-    }
+    ...mapState(['colors','hexCode']),
+    ...mapGetters(['colorCode','bgc'])
   }
 }
 </script>

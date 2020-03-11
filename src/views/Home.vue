@@ -8,13 +8,12 @@
 
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   computed: {
-    fontColor() {
-      return this.$store.getters.fontColor
-    }
+    ...mapGetters(['fontColor'])
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -29,6 +28,5 @@ export default {
     font-size 60px
     text-align center
     text-transform capitalize
-    // posCenter()
 
 </style>

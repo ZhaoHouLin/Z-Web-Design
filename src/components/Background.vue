@@ -7,11 +7,10 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   computed: {
-    bgc() {
-      return this.$store.getters.bgc
-    }
+    ...mapGetters(['bgc'])
   }
 }
 </script>

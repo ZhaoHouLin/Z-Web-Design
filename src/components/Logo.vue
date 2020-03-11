@@ -4,11 +4,10 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   computed: {
-    bgc() {
-      return this.$store.getters.bgc
-    }
+    ...mapGetters(['bgc'])
   }
 }
 </script>
@@ -21,7 +20,6 @@ export default {
   flexCenter()
   background-color #222
   position absolute
-  // border-radius 28px 0 32px 0
   left -32px
   top -32px
   h1

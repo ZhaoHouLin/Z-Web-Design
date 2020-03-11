@@ -14,6 +14,16 @@
     i.fab.fa-facebook-square(:style='fontColor')
 </template>
 
+<script>
+import {mapGetters} from 'vuex'
+export default {
+  computed: {
+    ...mapGetters(['fontColor'])
+  }
+}
+</script>
+
+
 <style lang="stylus">
 @import '../assets/cssSetting.styl'
 .menu
@@ -31,12 +41,3 @@
 
 </style>
 
-<script>
-export default {
-  computed: {
-    fontColor() {
-      return this.$store.getters.fontColor
-    }
-  }
-}
-</script>

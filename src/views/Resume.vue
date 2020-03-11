@@ -5,13 +5,12 @@
 
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   computed: {
-    fontColor() {
-      return this.$store.getters.fontColor
-    }
+    ...mapGetters(['fontColor'])
   }
-};
+}
 </script>
 
 <style lang="stylus">
@@ -20,7 +19,6 @@ export default {
 .resume
   size(100%,100vh)
   background-color transparent
-  // border 1px solid red
   position absolute
   flexCenter()
   h1

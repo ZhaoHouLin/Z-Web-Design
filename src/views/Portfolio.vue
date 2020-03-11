@@ -6,13 +6,12 @@
 </template>		
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   computed: {
-    fontColor() {
-      return this.$store.getters.fontColor
-    }
+    ...mapGetters(['fontColor'])
   }
-};
+}
 </script>
 
 
@@ -23,7 +22,6 @@ export default {
 .portfolio
   size(100%,100vh)
   background-color transparent
-  // border 1px solid red
   position absolute
   flexCenter()
   h1

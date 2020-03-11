@@ -1,19 +1,27 @@
 <template lang="pug">
 .setting(:style='bgc',@click='openOrNot' )
   i.fas.fa-cog
-  //- transition(name='rgbToHex' mode='out-in')
   
 </template>
 
+
 <script>
+import {mapActions,mapGetters} from 'vuex'
 export default {
-  computed: {
-    bgc() {
-      return this.$store.getters.bgc
+  data() {
+    return {
     }
+  },
+  methods: {
+    ...mapActions(['openOrNot']),
+
+  },
+  computed: {
+    ...mapGetters(['bgc'])
   }
 }
 </script>
+
 
 <style lang="stylus">
 @import '../assets/cssSetting.styl'
@@ -28,7 +36,6 @@ export default {
   bottom 0
   cursor pointer
   i
-
     margin 16px
     color #eee
     text-transform uppercase
@@ -41,21 +48,3 @@ export default {
 
 </style>
 
-<script>
-export default {
-  data() {
-    return {
-    }
-  },
-  methods: {
-    openOrNot(){
-      this.$store.commit('openOrNot',!this.$store.state.open)
-    }
-  },
-  computed: {
-    bgc() {
-      return this.$store.getters.bgc
-    }
-  }
-}
-</script>
