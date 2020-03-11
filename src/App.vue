@@ -15,19 +15,15 @@
 
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: 'app',
   data() {
     return {
-      setting: {
-        open: true
-      }
     }
   },
   computed: {
-    boderColor() {
-      return this.$store.getters.boderColor
-    }
+    ...mapGetters(['boderColor'])
   }
 };
 </script>

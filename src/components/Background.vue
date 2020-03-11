@@ -21,7 +21,7 @@ export default {
 .lines
   opacity 0.5
   z-index 1
-  size(100vw, 100vh)
+  size(100%, 100%)
   display flex
   justify-content center
   align-items center
