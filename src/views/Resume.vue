@@ -1,12 +1,39 @@
 <template lang="pug">
 .resume
-  h1(:style='fontColor') Resume
+  h1(:style='fontColor') resume
+  .education
+    h2 education
+    .info
+      .senior
+        .period 2005 - 2008
+        h3 松山高級工農職業學校
+        h4 資訊科
+      .university
+        .period 2008 - 2012
+        h3 國立台北科技大學
+        h4 光電工程系
+  .experience
+    h2 experience
+    .info
+      .company1
+        .period 2013 - 20017
+        h3 翰碁有限公司
+        h4 助理工程師
+      .company2
+        .period 2017 - Now
+        h3 藍新資訊股份有限公司
+        h4 疾病管制署 電腦硬體維護人員
 </template>
 
 
 <script>
 import {mapGetters} from 'vuex'
 export default {
+  data() {
+    return {
+
+    }
+  },
   computed: {
     ...mapGetters(['fontColor'])
   }
@@ -17,10 +44,23 @@ export default {
 @import '../assets/cssSetting.styl'
 
 .resume
+  border 1px solid #222
   size(100%,100vh)
   background-color transparent
   position absolute
   flexCenter()
-  h1
-    font-size 30px
+  flex-direction column
+  text-transform capitalize
+  .education,.experience
+    margin-top 32px
+    // flexCenter()
+    // flex-direction column
+    .info
+      flexCenter()
+      .senior,.university,.company1,.company2
+        size(220px,auto)
+        margin 16px
+        h3,h4
+          margin 8px 0
+
 </style>

@@ -20,7 +20,6 @@ export default {
 
 .lines
   opacity 0.5
-  z-index 1
   size(100vw, 100vh)
   posCenter()
 
