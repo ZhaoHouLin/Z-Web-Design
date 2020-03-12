@@ -20,11 +20,22 @@ export default {
   name: 'app',
   data() {
     return {
+      fullWidth: 0,
+      fullHeight: 0
     }
   },
   computed: {
     ...mapGetters(['boderColor'])
-  }
+  },
+  mounted() {
+    const vm = this
+    vm.fullWidth = window.innerWidth
+  	vm.fullHeight = window.innerHeight
+    window.onresize = () => {
+      vm.fullWidth = window.innerWidth
+      vm.fullHeight = window.innerHeight
+    };
+  },
 };
 </script>
 
@@ -35,7 +46,6 @@ export default {
   size(100%,100vh)
   background-color transparent
   position relative
-  posCenter()
   flexCenter()
   .frame
     position relative

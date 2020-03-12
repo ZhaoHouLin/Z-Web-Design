@@ -21,19 +21,17 @@ export default {
 .lines
   opacity 0.5
   z-index 1
-  size(100%, 100%)
-  display flex
-  justify-content center
-  align-items center
-  position absolute
+  size(100vw, 100vh)
+  posCenter()
 
   for n in 0...100
     .line:nth-child({n}), .line2:nth-child({n})
       size(n + '%', 1px)
       background-color #222
-      $posX = random(-100, 100) + '%'
-      $posY = random(-100, 100) + '%'
+      $posX = random(0, 100) + '%'
+      $posY = random(0, 100) + '%'
       abpos($posX, $posY)
+      transform translate(-$posX,-$posY)
 
     .line:nth-child({n})
       animation horizon 5s infinite
