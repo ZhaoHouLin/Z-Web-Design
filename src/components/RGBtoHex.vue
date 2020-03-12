@@ -3,9 +3,8 @@
   .colorAll
     .color(v-for='(color,key,id) in colors')
       span {{key}}
-      input(@mousemove='colorChange(color,id)' v-model='colors[key]' type="range" min="0" max="255" step="1" value="0")
+      input(@change='colorChange(color,id)' @input='colorChange(color,id)' v-model='colors[key]' type="range" min=0 max=255 step=1 )
       label {{color}}
-
   .colorCode {{colorCode}}
 </template>
 
@@ -14,7 +13,6 @@ import {mapState,mapMutations,mapActions,mapGetters} from 'vuex'
 export default {
   data() {
     return {
- 
     }
   },
   methods: {
@@ -37,6 +35,7 @@ export default {
   computed: {
     ...mapState(['colors','hexCode']),
     ...mapGetters(['colorCode','bgc'])
+    
   }
 }
 </script>
@@ -56,7 +55,7 @@ export default {
   flex-direction column
   .colorAll
     flexCenter()
-    .color
+    .colorR,.colorG,.colorB,.color
       size(auto,auto)
       flexCenter()
       flex-direction column
