@@ -1,6 +1,6 @@
 <template lang="pug">
-  .portfolio
-    h1(:style='fontColor') Portfolio
+.portfolio
+  h1(:style='fontColor') {{$route.name}}
     
 
 </template>		
@@ -14,8 +14,6 @@ export default {
 }
 </script>
 
-
-
 <style lang="stylus">
 @import '../assets/cssSetting.styl'
 
@@ -25,5 +23,10 @@ export default {
   position absolute
   flexCenter()
   h1
-    font-size 30px
+    position absolute
+    top 100px
+    left 280px
+    font-size 64px
+    text-align center
+    text-transform capitalize
 </style>

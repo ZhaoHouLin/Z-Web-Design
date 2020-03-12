@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-
 import Logo from './components/Logo.vue'
 import Menu from './components/Menu.vue'
 import Setting from './components/Setting.vue'

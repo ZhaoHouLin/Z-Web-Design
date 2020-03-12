@@ -47,6 +47,7 @@ export default {
   background-color transparent
   position relative
   flexCenter()
+  
   .frame
     position relative
     z-index 2
@@ -54,7 +55,7 @@ export default {
     background-color transparent
     border 2px solid #222
     border-radius 32px
-
+    
 .page-enter-active,.page-leave-active
   transition 0.5s
 .page-enter,.page-leave-to

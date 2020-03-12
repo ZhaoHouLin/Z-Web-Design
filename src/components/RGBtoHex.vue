@@ -3,7 +3,7 @@
   .colorAll
     .color(v-for='(color,key,id) in colors')
       span {{key}}
-      input(@change='colorChange(color,id)' @input='colorChange(color,id)' v-model='colors[key]' type="range" min=0 max=255 step=1 )
+      input(@mousemove='colorChange(color,id)' @change='colorChange(color,id)' @input='colorChange(color,id)' v-model='colors[key]' type="range" min=0 max=255 step=1 )
       label {{color}}
   .colorCode {{colorCode}}
 </template>
@@ -48,9 +48,9 @@ export default {
   transition 0.5s
   left 0
   top 0
+  opacity 0
   position absolute
-  size(auto,300px)
-  transform scale(0)
+  size(auto,0px)
   flexCenter()
   flex-direction column
   .colorAll
@@ -81,7 +81,9 @@ export default {
     margin-top 8px
     // margin-bottom 20px
   &.isOpen
-    transform scale(1)
+    // transform scale(1)
+    opacity 1
+    size(auto,300px)
     top 200px
     
 </style>

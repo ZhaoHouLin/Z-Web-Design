@@ -1,6 +1,6 @@
 <template lang="pug">
 .resume
-  h1(:style='fontColor') resume
+  h1(:style='fontColor') {{$route.name}}
   .education
     h2 education
     .info
@@ -51,6 +51,13 @@ export default {
   flexCenter()
   flex-direction column
   text-transform capitalize
+  h1
+    position absolute
+    top 100px
+    left 280px
+    font-size 64px
+    text-align center
+    text-transform capitalize
   .education,.experience
     margin-top 32px
     // flexCenter()
