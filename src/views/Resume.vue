@@ -45,7 +45,7 @@ export default {
 
 .resume
   border 1px solid #222
-  size(100%,100vh)
+  size(94%,90vh)
   background-color transparent
   position absolute
   flexCenter()
@@ -53,7 +53,7 @@ export default {
   text-transform capitalize
   h1
     position absolute
-    top 100px
+    top 6%
     left 280px
     font-size 64px
     text-align center

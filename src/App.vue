@@ -15,7 +15,7 @@
 
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapState,mapActions,mapGetters} from 'vuex'
 export default {
   name: 'app',
   data() {
@@ -24,8 +24,12 @@ export default {
       fullHeight: 0
     }
   },
+  methods: {
+    ...mapActions(['loadDms']),
+  },
   computed: {
-    ...mapGetters(['boderColor'])
+    ...mapGetters(['boderColor']),
+    ...mapState(['dms'])
   },
   mounted() {
     const vm = this
@@ -35,6 +39,7 @@ export default {
       vm.fullWidth = window.innerWidth
       vm.fullHeight = window.innerHeight
     };
+    this.loadDms()
   },
 };
 </script>
