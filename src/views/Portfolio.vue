@@ -2,30 +2,30 @@
 .portfolio
   h1(:style='fontColor') {{$route.name}}
   .works
-    .test(v-for='dm in dms')
-      h3 {{dm.name}}
-      .cover(:style='bgcss(dm.cover)')
+    .work(v-for='dm in dms')
+      h2 {{dm.name}}
+      img.cover(v-lazy='dm.cover')
     
 
 </template>		
 
 <script>
 import {mapGetters,mapState,mapActions} from 'vuex'
+
 export default {
+  data() {
+    return {
+    }
+  },
   methods: {
     ...mapActions(['loadDms']),
-    bgcss(url) {
-			return {
-				backgroundImage: "url(" + url + ")"
-			};
-		}
   },
   computed: {
     ...mapGetters(['fontColor']),
     ...mapState(['dms'])
   },
   mounted() {
-    // this.loadDms()
+    this.loadDms()
   }
 
 }
@@ -47,11 +47,21 @@ export default {
     text-align center
     text-transform capitalize
   .works
-    size(50%,50%)
-    background-color #eee
+    flexCenter()
+    size(70%,70%)
     position absolute
-    right 0
-    bottom 20%
-    .cover
-      size(300px,300px)
+    // right 0
+    bottom 10%
+    .work
+      flexCenter()
+      flex-direction column
+      h2
+        text-shadow 8px 8px 24px rgba(0,0,0,0.5)
+      .cover
+        size(300px,420px)
+        box-shadow 4px 4px 12px rgba(0,0,0,0.5)
+        margin 16px
+        border-radius 8px
+
+
 </style>

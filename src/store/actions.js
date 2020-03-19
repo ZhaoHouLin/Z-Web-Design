@@ -15,7 +15,7 @@ export default {
     axios.get('http://localhost:3000/dms')
       .then(res => {
         context.commit('setDms', res.data)
-        console.log(res)
+        // console.log(res)
       })
   }
 }

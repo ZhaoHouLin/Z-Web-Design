@@ -44,7 +44,6 @@ export default {
 @import '../assets/cssSetting.styl'
 
 .resume
-  border 1px solid #222
   size(94%,90vh)
   background-color transparent
   position absolute
@@ -60,8 +59,8 @@ export default {
     text-transform capitalize
   .education,.experience
     margin-top 32px
-    // flexCenter()
-    // flex-direction column
+    h2
+      text-shadow 8px 4px 8px rgba(0,0,0,0.5)
     .info
       flexCenter()
       .senior,.university,.company1,.company2
