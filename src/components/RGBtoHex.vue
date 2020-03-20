@@ -84,7 +84,7 @@ export default {
     // transform scale(1)
     opacity 1
     size(auto,300px)
-    top 200px
+    top 210px
     
 </style>
 

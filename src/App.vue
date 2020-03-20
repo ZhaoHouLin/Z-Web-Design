@@ -3,6 +3,7 @@
   .frame(:style='boderColor')
     Logo
     RGBtoHex
+    ShapeChange
     Menu
     Setting
     PreviousAndNext

@@ -9,6 +9,10 @@ export default {
   },
   setDms(state,value) {
     state.dms = value
+  },
+  setShape(state, payload) {
+    state.width = payload.width
+    state.height = payload.height
+    state.bdrs = payload.bdrs
   }
-
 }

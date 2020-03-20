@@ -18,5 +18,13 @@ export default {
     return {
       "border-color": `${state.hexCode}`
     }
+  },
+  shapeStyle(state) {
+    return {
+      "background-color": `${state.hexCode}`,
+      "width" : `${state.width}`,
+      "height": `${state.height}`,
+      "border-radius": `${state.bdrs}`
+    }
   }
 }

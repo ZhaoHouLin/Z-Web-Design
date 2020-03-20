@@ -27,11 +27,12 @@ export default {
 @import '../assets/cssSetting.styl'
 .setting
   z-index 100
-  size(100px,100px)
+  size(72px,72px)
   flexCenter()
   background-color #222
   position absolute
   border-radius 0 32px 0 28px
+  border-right 2px solid #eee
   left 0
   bottom 0
   cursor pointer

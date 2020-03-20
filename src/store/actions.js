@@ -1,6 +1,5 @@
 export default {
   changeCode: ({ commit }, { hexCode, id }) => {
-    console.log(hexCode)
     commit('changeCodeData', {
       hexCode,
       id 
@@ -10,6 +9,14 @@ export default {
   openOrNot: ({ commit, state }) => {
     commit('openOrNot', !state.open)
   },
+
+  setShape: ({commit},{width,height,bdrs}) => {
+    commit('setShape',{
+      width,
+      height,
+      bdrs
+    })
+  },
   
   loadDms(context) {
     axios.get('http://localhost:3000/dms')
@@ -17,5 +24,7 @@ export default {
         context.commit('setDms', res.data)
         // console.log(res)
       })
-  }
+  },
+
+
 }

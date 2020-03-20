@@ -1,16 +1,16 @@
 <template lang="pug">
--var j=100
+-var j=25
 .lines
   -for (var i=0;i<j;i++)
-    .line(:style='bgc')
-    .line2(:style='bgc')
+    .line(:style='shapeStyle')
+    .line2(:style='shapeStyle')
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['bgc'])
+    ...mapGetters(['bgc','shapeStyle'])
   }
 }
 </script>
@@ -25,7 +25,8 @@ export default {
 
   for n in 0...100
     .line:nth-child({n}), .line2:nth-child({n})
-      size(n + '%', 1px)
+      size(n + '%', 2px)
+      border-radius 50%
       background-color #222
       $posX = random(0, 100) + '%'
       $posY = random(0, 100) + '%'
@@ -45,7 +46,7 @@ export default {
     opacity 0
 
   70%
-    opacity 1
+    opacity 0.5
 
   0%
     transform translate(-100%, 0%)
@@ -58,7 +59,7 @@ export default {
     opacity 0
 
   70%
-    opacity 1
+    opacity 0.5
 
   0%
     transform rotate(-45deg) translate(100%, -100%)
