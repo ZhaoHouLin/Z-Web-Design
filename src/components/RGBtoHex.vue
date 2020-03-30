@@ -82,7 +82,7 @@ export default {
     margin-top 8px
   &.isOpen
     opacity 1
-    size(32%,36%)
+    size(auto,36%)
     top 28vh
     
 </style>
