@@ -42,15 +42,14 @@ export default {
   h1
     position absolute
     top 6%
-    left 280px
-    font-size 64px
+    left 20%
     text-align center
     text-transform capitalize
   .works
     flexCenter()
     size(70%,70%)
     position absolute
-    // right 0
+    border 1px solid #000
     bottom 10%
     .work
       flexCenter()

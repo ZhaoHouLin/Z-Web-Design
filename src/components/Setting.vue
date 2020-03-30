@@ -37,10 +37,9 @@ export default {
   bottom 0
   cursor pointer
   i
-    margin 16px
+    margin 2vw
     color #eee
     text-transform uppercase
-    font-size 28px
   &:hover
     transition 0.5s
     i

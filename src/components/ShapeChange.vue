@@ -64,12 +64,10 @@ export default {
     flexCenter()    
     i 
       margin 16px
-      font-size 32px
       color white
       cursor pointer
   
   &.isOpen
-    // transform scale(1)
     opacity 1
     size(280px,72px)
     border-radius 0 32px 0 0

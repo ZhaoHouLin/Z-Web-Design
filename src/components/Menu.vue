@@ -30,11 +30,12 @@ export default {
   size(auto,auto)
   position absolute
   right 16px
+  top 4px
   background-color transparent
   flexCenter()
   i
-    margin 16px
-    font-size 36px
+    margin 2vw
+    font-size 4vh
     color #222
     cursor pointer
 

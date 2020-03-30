@@ -46,11 +46,10 @@ export default {
 @import '../assets/cssSetting.styl'
 .rgbToHex
   transition 0.5s
-  left 0
+  left 4vh
   top 0
   opacity 0
   position absolute
-  size(auto,0px)
   flexCenter()
   flex-direction column
   .colorAll
@@ -65,6 +64,9 @@ export default {
       input[type="range"]
         writing-mode bt-lr /* IE */
         -webkit-appearance slider-vertical
+        // -moz-appearance slider-vertical
+        // -webkit-writing-mode vertical-lr
+        // -moz-writing-mode vertical-lr
         size(60px,100px)
         overflow hidden    /* 限定範圍 */
         outline none     /* 避免點選會有藍線或虛線 */
@@ -72,19 +74,16 @@ export default {
         border 1px solid #000
         border-radius 2px
       label
-        // flex 1
         flexCenter()
         text-align center
   .colorCode
-    font-size 32px
+    font-size 4vh
     color #eee
     margin-top 8px
-    // margin-bottom 20px
   &.isOpen
-    // transform scale(1)
     opacity 1
-    size(auto,300px)
-    top 210px
+    size(auto,40vh)
+    top 28vh
     
 </style>
 

@@ -1,6 +1,7 @@
 <template lang="pug">
 .logo(:style='bgc')
   h1 zz
+  slot
 </template>
 
 <script>
@@ -16,14 +17,12 @@ export default {
 @import '../assets/cssSetting.styl'
 .logo
   z-index 100
-  size(240px,240px)
+  size(30vh)
   flexCenter()
   background-color #222
   position absolute
-  left -32px
-  top -32px
   h1
     color #eee
     text-transform uppercase
-    font-size 100px
+    font-size 16vh
 </style>

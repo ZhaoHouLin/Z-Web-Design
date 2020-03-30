@@ -53,8 +53,7 @@ export default {
   h1
     position absolute
     top 6%
-    left 280px
-    font-size 64px
+    left 20%
     text-align center
     text-transform capitalize
   .education,.experience
