@@ -40,5 +40,11 @@ export default {
     cursor pointer
 
 
+@media screen and (max-width: 1024px)
+  .menu
+    flex-direction column
+
+
+
 </style>
 

@@ -46,7 +46,7 @@ export default {
 @import '../assets/cssSetting.styl'
 .rgbToHex
   transition 0.5s
-  left 4vh
+  left 2%
   top 0
   opacity 0
   position absolute
@@ -83,7 +83,7 @@ export default {
   &.isOpen
     opacity 1
     size(auto,36%)
-    top 28vh
+    top 30vh
     
 </style>
 

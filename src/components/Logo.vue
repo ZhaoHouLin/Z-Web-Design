@@ -25,4 +25,12 @@ export default {
     color #eee
     text-transform uppercase
     font-size 16vh
+
+@media screen and (max-width: 1024px)
+  .logo
+    size(20vh)
+    h1
+      font-size 8vh
+
+
 </style>
