@@ -41,8 +41,8 @@ export default {
   flexCenter()
   h1
     position absolute
-    top 6%
-    left 20%
+    top 4%
+    left 32vh
     text-align center
     text-transform capitalize
   .works
@@ -61,6 +61,11 @@ export default {
         box-shadow 4px 4px 12px rgba(0,0,0,0.5)
         margin 16px
         border-radius 8px
+
+@media screen and (max-width: 1024px)
+  .portfolio
+    h1
+      left 24vh
 
 
 </style>

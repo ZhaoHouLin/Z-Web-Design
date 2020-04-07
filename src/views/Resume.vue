@@ -52,8 +52,8 @@ export default {
   text-transform capitalize
   h1
     position absolute
-    top 6%
-    left 20%
+    top 4%
+    left 32vh
     text-align center
     text-transform capitalize
   .education,.experience
@@ -67,5 +67,10 @@ export default {
         margin 16px
         h3,h4
           margin 8px 0
+
+@media screen and (max-width: 1024px)
+  .resume
+    h1
+      left 24vh
 
 </style>
