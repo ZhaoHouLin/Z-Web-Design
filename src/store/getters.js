@@ -30,7 +30,7 @@ export default {
 
   changePage(state) {
     return {
-      left: `${-(state.count - 1) * 100}%`
+      left: `${-(state.count) * 100}%`
     }
   },
 }

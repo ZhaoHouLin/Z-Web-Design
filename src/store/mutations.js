@@ -17,7 +17,7 @@ export default {
   },
   setCount(state, count) {
     state.count += count
-    if (state.count > 2) state.count = 1
-    if (state.count < 1) state.count = 2
+    if (state.count > 1) state.count = 0
+    if (state.count < 0) state.count = 1
   }
 }

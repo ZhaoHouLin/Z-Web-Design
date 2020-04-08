@@ -20,7 +20,7 @@ const state = {
   width: '',
   height: '',
   bdrs:'',
-  count: 1
+  count: 0
 }
 
 
