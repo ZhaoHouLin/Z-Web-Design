@@ -17,6 +17,10 @@ export default {
       bdrs
     })
   },
+
+  setCount: ({commit},count) => {
+    commit('setCount',count)
+  },
   
   loadDms(context) {
     axios.get('http://localhost:3000/dms')

@@ -19,7 +19,8 @@ const state = {
   dms: null,
   width: '',
   height: '',
-  bdrs:''
+  bdrs:'',
+  count: 1
 }
 
 

@@ -26,5 +26,11 @@ export default {
       "height": `${state.height}`,
       "border-radius": `${state.bdrs}`
     }
-  }
+  },
+
+  changePage(state) {
+    return {
+      left: `${-(state.count - 1) * 100}%`
+    }
+  },
 }

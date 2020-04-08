@@ -1,16 +1,25 @@
 <template lang="pug">
 .previousAndNext
-  .previous
+  .previous(@click='previous')
     i.fas.fa-chevron-left(:style='fontColor')
-  .next
+  .next(@click='next')
     i.fas.fa-chevron-right(:style='fontColor')
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters ,mapActions} from 'vuex'
 export default {
   computed: {
     ...mapGetters(['fontColor'])
+  },
+  methods: {
+    ...mapActions(['setCount']),
+    previous() {
+      this.setCount(-1)
+    },
+    next() {
+      this.setCount(1)
+    },
   }
 }
 </script>

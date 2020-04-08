@@ -14,5 +14,10 @@ export default {
     state.width = payload.width
     state.height = payload.height
     state.bdrs = payload.bdrs
+  },
+  setCount(state, count) {
+    state.count += count
+    if (state.count > 2) state.count = 1
+    if (state.count < 1) state.count = 2
   }
 }
