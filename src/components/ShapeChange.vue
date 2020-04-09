@@ -1,9 +1,9 @@
 <template lang="pug">
-.shapeChange(:style='bgc' ,:class="{isOpen: $store.state.open}")
+.shapeChange(:style='boderColor' ,:class="{isOpen: $store.state.open}")
   .shape
-    i(@click='shapeDot').fas.fa-dot-circle
-    i(@click='shapeLine').fas.fa-slash
-    i(@click='shapeSquare').far.fa-square
+    i(@click='shapeDot' :style='fontColor').fas.fa-dot-circle
+    i(@click='shapeLine' :style='fontColor').fas.fa-slash
+    i(@click='shapeSquare' :style='fontColor').far.fa-square
 </template>
 
 <script>
@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     ...mapState(['colors','hexCode']),
-    ...mapGetters(['colorCode','bgc'])
+    ...mapGetters(['colorCode','bgc','boderColor','fontColor'])
     
   }
 }
@@ -55,16 +55,18 @@ export default {
   bottom 0
   opacity 0
   position absolute
-  background-color #222
+  background-color transparent
   size(140px,72px)
   border-radius 0 32px 0 28px
+  border-top 2px solid #222
+  border-right 2px solid #222
   flexCenter(flex-end,center)
   .shape
     size(240px,72px)
     flexCenter()    
     i 
       margin 16px
-      color white
+      color #222
       cursor pointer
   
   &.isOpen

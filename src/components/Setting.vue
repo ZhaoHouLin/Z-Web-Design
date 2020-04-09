@@ -1,6 +1,6 @@
 <template lang="pug">
-.setting(:style='bgc',@click='openOrNot' )
-  i.fas.fa-cog
+.setting(:style='boderColor',@click='openOrNot' )
+  i.fas.fa-cog(:style='fontColor')
   
 </template>
 
@@ -17,7 +17,7 @@ export default {
 
   },
   computed: {
-    ...mapGetters(['bgc'])
+    ...mapGetters(['bgc','boderColor','fontColor'])
   }
 }
 </script>
@@ -29,10 +29,10 @@ export default {
   z-index 100
   size(72px,72px)
   flexCenter()
-  background-color #222
   position absolute
   border-radius 0 32px 0 28px
-  border-right 2px solid #eee
+  border-right 2px solid #222
+  border-top 2px solid #222
   left 0
   bottom 0
   cursor pointer

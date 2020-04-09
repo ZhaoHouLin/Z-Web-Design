@@ -1,11 +1,11 @@
 <template lang="pug">
-.rgbToHex(:style='bgc' ,:class="{isOpen: $store.state.open}")
+.rgbToHex(:style='boderColor' ,:class="{isOpen: $store.state.open}")
   .colorAll
     .color(v-for='(color,key,id) in colors')
-      span {{key}}
+      span(:style='fontColor') {{key}}
       input(@mousemove='colorChange(color,id)' @change='colorChange(color,id)' @input='colorChange(color,id)' v-model='colors[key]' type="range" min=0 max=255 step=1 )
-      label {{color}}
-  .colorCode {{colorCode}}
+      label(:style='fontColor') {{color}}
+  .colorCode(:style='fontColor') {{colorCode}}
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     ...mapState(['colors','hexCode']),
-    ...mapGetters(['colorCode','bgc'])
+    ...mapGetters(['colorCode','bgc','boderColor','fontColor'])
     
   }
 }
@@ -58,7 +58,7 @@ export default {
       size(auto,auto)
       flexCenter()
       flex-direction column
-      color #eee
+      color #222
       span,input,label
         margin-bottom 8px
       input[type="range"]
@@ -70,7 +70,7 @@ export default {
         size(60px,100px)
         overflow hidden    /* 限定範圍 */
         outline none     /* 避免點選會有藍線或虛線 */
-        background-color #eee
+        // background-color #eee
         border 1px solid #000
         border-radius 2px
       label
@@ -78,7 +78,7 @@ export default {
         text-align center
   .colorCode
     font-size 4vh
-    color #eee
+    color #222
     margin-top 8px
   &.isOpen
     opacity 1

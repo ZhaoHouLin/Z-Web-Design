@@ -1,6 +1,6 @@
 <template lang="pug">
-.logo(:style='bgc')
-  h1 zz
+.logo(:style='boderColor')
+  h1(:style='fontColor') zz
   slot
 </template>
 
@@ -8,7 +8,7 @@
 import {mapGetters} from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['bgc'])
+    ...mapGetters(['bgc','boderColor','fontColor'])
   }
 }
 </script>
@@ -19,10 +19,12 @@ export default {
   z-index 100
   size(30vh)
   flexCenter()
-  background-color #222
+  // background-color transparent
+  border-right 2px solid #222
+  border-bottom 2px solid #222
   position absolute
   h1
-    color #eee
+    color #222
     text-transform uppercase
     font-size 16vh
 
