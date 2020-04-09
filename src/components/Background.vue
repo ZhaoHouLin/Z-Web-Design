@@ -1,9 +1,12 @@
 <template lang="pug">
--var j=25
-.lines
-  -for (var i=0;i<j;i++)
-    .line(:style='shapeStyle')
-    .line2(:style='shapeStyle')
+.bg
+  .blurBg
+  -var j=25
+  .lines
+    -for (var i=0;i<j;i++)
+      .line(:style='shapeStyle')
+      .line2(:style='shapeStyle')
+
 </template>
 
 <script>
@@ -18,28 +21,36 @@ export default {
 <style lang="stylus">
 @import '../assets/cssSetting.styl'
 
-.lines
-  opacity 0.5
-  size(100vw, 100vh)
-  posCenter()
+.bg
+  size(100vw,100vh)
+  position absolute
+  .blurBg
+    size(100vw,100vh)
+    background-color #eee
+    filter blur(72px)
 
-  for n in 0...100
-    .line:nth-child({n}), .line2:nth-child({n})
-      size(n + '%', 2px)
-      border-radius 50%
-      background-color #222
-      $posX = random(0, 100) + '%'
-      $posY = random(0, 100) + '%'
-      abpos($posX, $posY)
-      transform translate(-$posX,-$posY)
+  .lines
+    opacity 0.5
+    size(100vw, 100vh)
+    posCenter()
 
-    .line:nth-child({n})
-      animation horizon 5s infinite
-      animation-delay n * -0.1s
+    for n in 0...100
+      .line:nth-child({n}), .line2:nth-child({n})
+        size(n + '%', 2px)
+        border-radius 50%
+        background-color #222
+        $posX = random(0, 100) + '%'
+        $posY = random(0, 100) + '%'
+        abpos($posX, $posY)
+        transform translate(-$posX,-$posY)
 
-    .line2:nth-child({n})
-      animation falling 5s infinite
-      animation-delay n * -0.1s
+      .line:nth-child({n})
+        animation horizon 5s infinite
+        animation-delay n * -0.1s
+
+      .line2:nth-child({n})
+        animation falling 5s infinite
+        animation-delay n * -0.1s
 
 @keyframes horizon
   0%, 100%
