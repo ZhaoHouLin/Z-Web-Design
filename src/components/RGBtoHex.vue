@@ -47,7 +47,12 @@ export default {
 .rgbToHex
   transition 0.5s
   left 2%
-  top 0
+  // top 0
+  top 30vh
+  size(auto,36%)
+  border-left 2px solid #222
+  border-right 2px solid #222
+  border-bottom 2px solid #222
   opacity 0
   position absolute
   flexCenter()
@@ -82,8 +87,15 @@ export default {
     margin-top 8px
   &.isOpen
     opacity 1
-    size(auto,36%)
-    top 30vh
+    // size(auto,36%)
+    // top 30vh
     
+@media screen and (max-width: 1024px)
+  .rgbToHex
+    transform scale(0.7)
+    border none
+    left 18vh
+    top -4vh
+
 </style>
 

@@ -16,6 +16,7 @@ export default {
 <style lang="stylus">
 @import '../assets/cssSetting.styl'
 .logo
+  user-select none
   z-index 100
   size(30vh)
   flexCenter()

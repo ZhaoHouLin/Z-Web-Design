@@ -51,15 +51,13 @@ export default {
 @import '../assets/cssSetting.styl'
 .shapeChange
   transition 0.5s
-  left 0
+  left -32px
   bottom 0
   opacity 0
   position absolute
   background-color transparent
-  size(140px,72px)
-  border-radius 0 32px 0 28px
-  border-top 2px solid #222
-  border-right 2px solid #222
+  size(280px,72px)
+  
   flexCenter(flex-end,center)
   .shape
     size(240px,72px)
@@ -71,9 +69,23 @@ export default {
   
   &.isOpen
     opacity 1
-    size(280px,72px)
+    border-top 2px solid #222
+    border-right 2px solid #222
     border-radius 0 32px 0 0
     left 24px
-    
+
+@media screen and (max-width: 1024px)
+  .shapeChange
+    border none
+    size(72px,160px)
+    left 0
+    .shape
+      size(72px,2000px)
+      transform scale(0.7)
+      flex-direction column  
+      
+    &.isOpen
+      left 0 
+      bottom 64px
 </style>
 

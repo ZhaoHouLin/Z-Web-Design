@@ -58,8 +58,8 @@ export default {
   text-transform capitalize
   h1
     position absolute
-    top 4%
-    left 32vh
+    bottom 2%
+    right 28vh
     text-align center
     text-transform capitalize
   .screen
