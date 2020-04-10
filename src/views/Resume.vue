@@ -59,9 +59,10 @@ export default {
   h1
     position absolute
     bottom 2%
-    right 28vh
+    right 24vh
     text-align center
     text-transform capitalize
+    
   .screen
     overflow hidden
     white-space nowrap
@@ -76,7 +77,7 @@ export default {
       .education,.experience
         size(auto,auto)
         h2
-          text-shadow 8px 4px 8px rgba(0,0,0,0.5)
+          // text-shadow 8px 4px 8px rgba(0,0,0,0.5)
         .info
           flexCenter()
           .senior,.university,.company1,.company2
@@ -89,8 +90,11 @@ export default {
   .resume
     flex-direction column
     h1
+      font-size 4vh
       left 24vh
     .screen
+      left 16px
+      top 16px
       size(240px,70%)
       .pages
         .education,.experience

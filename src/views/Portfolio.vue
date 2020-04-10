@@ -44,7 +44,7 @@ export default {
     // top 4%
     // left 32vh
     bottom 2%
-    right 28vh
+    right 24vh
     text-align center
     text-transform capitalize
   .works
@@ -67,6 +67,7 @@ export default {
 @media screen and (max-width: 1024px)
   .portfolio
     h1
+      font-size 4vh
       left 24vh
 
 

@@ -87,5 +87,6 @@ export default {
     &.isOpen
       left 0 
       bottom 64px
+      border none
 </style>
 
