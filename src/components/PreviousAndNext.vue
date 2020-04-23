@@ -27,6 +27,7 @@ export default {
 <style lang="stylus">
 @import '../assets/cssSetting.styl'
 .previousAndNext
+  z-index 2
   size(10%,10%)
   flexCenter()
   position absolute
