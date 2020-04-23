@@ -30,7 +30,7 @@ export default {
     filter blur(72px)
 
   .lines
-    opacity 0.5
+    opacity 0.2
     size(100vw, 100vh)
     posCenter()
 
