@@ -1,5 +1,5 @@
 <template lang="pug">
-.portfolio
+.portfolio(@wheel.prevent="wheel")
   h1(:style='fontColor') {{$route.name}}
   .works
     .work(v-for='dm in dms')
@@ -19,6 +19,12 @@ export default {
   },
   methods: {
     ...mapActions(['loadDms']),
+    wheel(evt){
+      console.log(evt.deltaY)
+      TweenMax.to(".work",0.8,{
+        left: "-="+ evt.deltaY*2+"px"
+      })
+    },
   },
   computed: {
     ...mapGetters(['fontColor']),
@@ -48,12 +54,12 @@ export default {
     text-align center
     text-transform capitalize
   .works
+    z-index 2
     flexCenter()
     size(70%,70%)
-    position absolute
-    border 1px solid #000
     bottom 10%
     .work
+      position relative
       flexCenter()
       flex-direction column
       h2

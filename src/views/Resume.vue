@@ -1,5 +1,6 @@
 <template lang="pug">
 .resume
+  PreviousAndNext
   h1(:style='fontColor') {{$route.name}}
   .screen
     .pages(:style='changePage')

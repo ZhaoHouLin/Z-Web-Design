@@ -6,7 +6,7 @@
     ShapeChange
     Menu
     Setting
-    PreviousAndNext
+    //- PreviousAndNext
   Background
   transition(name='page' mode='out-in')
     router-view
