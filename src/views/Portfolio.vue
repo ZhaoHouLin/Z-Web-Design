@@ -1,10 +1,14 @@
 <template lang="pug">
 .portfolio(@wheel.prevent="wheel")
   h1(:style='fontColor') {{$route.name}}
-  .works
-    .work(v-for='dm in dms')
-      h2 {{dm.name}}
-      img.cover(v-lazy='dm.cover')
+  swiper(ref='mySwiper' :options='swiperOptions')
+    .swiper-slide(v-for='dm in dms')
+      h2(:style='fontColor') {{dm.name}}
+      img.cover.swiper-lazy(:src='dm.cover')
+      .swiper-lazy-preloader.swiper-lazy-preloader-white
+    .swiper-pagination(slot='pagination')
+  //- .swiper-button-next
+  //- .swiper-button-prev
     
 
 </template>		
@@ -15,23 +19,45 @@ import {mapGetters,mapState,mapActions} from 'vuex'
 export default {
   data() {
     return {
+      swiperOptions: {
+        lazy: true,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 3000,
+        },
+        // Some Swiper option/callback...
+      }
     }
   },
   methods: {
     ...mapActions(['loadDms']),
-    wheel(evt){
-      console.log(evt.deltaY)
-      TweenMax.to(".work",0.8,{
-        left: "-="+ evt.deltaY*2+"px"
-      })
-    },
+    // wheel(evt){
+    //   console.log(evt.deltaY)
+    //   TweenMax.to(".work",0.8,{
+    //     left: "-="+ evt.deltaY*2+"px"
+    //   })
+    // },
   },
   computed: {
     ...mapGetters(['fontColor']),
-    ...mapState(['dms'])
+    ...mapState(['dms']),
+    swiper() {
+      return this.$refs.mySwiper.$swiper
+    }
   },
   mounted() {
     this.loadDms()
+    console.log('Current Swiper instance object', this.swiper)
+    this.swiper.slideTo(1, 1000, false)
   }
 
 }
@@ -53,22 +79,25 @@ export default {
     right 24vh
     text-align center
     text-transform capitalize
-  .works
-    z-index 2
+
+  .swiper-container 
+    // border 1px solid #000
+    z-index 100
     flexCenter()
     size(70%,70%)
-    bottom 10%
-    .work
-      position relative
-      flexCenter()
-      flex-direction column
-      h2
-        text-shadow 8px 8px 24px rgba(0,0,0,0.5)
-      .cover
-        size(300px,420px)
-        box-shadow 4px 4px 12px rgba(0,0,0,0.5)
-        margin 16px
-        border-radius 8px
+
+  .swiper-slide
+    flexCenter()
+    flex-direction column
+    h2
+      text-shadow 8px 8px 24px rgba(0,0,0,0.5)
+    .cover
+      size(300px,420px)
+      background-color rgba(0,0,0,0.5)
+      box-shadow 4px 4px 12px rgba(0,0,0,0.5)
+      margin 16px
+      border-radius 8px
+
 
 @media screen and (max-width: 1024px)
   .portfolio
