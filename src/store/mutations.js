@@ -7,6 +7,9 @@ export default {
   openOrNot(state, turn) {
     state.open = turn
   },
+  dmOpenOrNot(state, turn) {
+    state.dmOpen = turn
+  },
   setDms(state,value) {
     state.dms = value
   },

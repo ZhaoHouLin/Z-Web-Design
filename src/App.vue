@@ -1,5 +1,7 @@
 <template lang='pug'>
 .app
+  .detail(:class="{isOpen: $store.state.dmOpen}" @click='dmOpenOrNot')
+  //- img.dmCover(@click='dmOpenOrNot')
   .frame(:style='boderColor')
     Logo
     RGBtoHex
@@ -27,7 +29,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['loadDms']),
+    ...mapActions(['loadDms','dmOpenOrNot']),
   },
   computed: {
     ...mapGetters(['boderColor']),
@@ -54,7 +56,20 @@ export default {
   background-color transparent
   position relative
   flexCenter()
-  
+  .detail
+    size(100%,100vh)
+    position fixed
+    background-color #222
+    opacity 0
+    display none
+    
+    &.isOpen
+      opacity 0.5
+      z-index 3
+      display block
+      flexCenter()
+
+
   .frame
     position relative
     z-index 2

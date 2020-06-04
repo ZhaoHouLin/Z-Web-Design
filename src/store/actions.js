@@ -10,6 +10,10 @@ export default {
     commit('openOrNot', !state.open)
   },
 
+  dmOpenOrNot: ({ commit, state }) => {
+    commit('dmOpenOrNot', !state.dmOpen)
+  },
+
   setShape: ({commit},{width,height,bdrs}) => {
     commit('setShape',{
       width,

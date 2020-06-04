@@ -16,6 +16,8 @@ const state = {
   colorHexData: ["00", "00", "00"],
   hexCode: "#",
   open: false,
+  dmOpen: false,
+  dmCover:'',
   dms: null,
   width: '',
   height: '',

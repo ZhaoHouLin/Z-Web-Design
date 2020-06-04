@@ -1,11 +1,12 @@
 <template lang="pug">
 .portfolio
   h1(:style='fontColor') {{$route.name}}
-  swiper(ref='mySwiper' :options='swiperOptions')
-    .swiper-slide(v-for='dm in dms')
+  swiper(ref='mySwiper' :options='swiperOptions' )
+    .swiper-slide(v-for='dm in dms' :class="{isOpen: $store.state.dmOpen}")
       h2(:style='fontColor') {{dm.name}}
-      img.cover.swiper-lazy(:src='dm.cover' )
+      img.cover.swiper-lazy(:src='dm.cover' @click='dmOpenOrNot' )
       .swiper-lazy-preloader.swiper-lazy-preloader-white
+      
     .swiper-pagination(slot='pagination')
   //- .swiper-button-next
   //- .swiper-button-prev
@@ -47,17 +48,11 @@ export default {
         //   delay: 3000,
         // },
         // Some Swiper option/callback...
-      }
+      },
     }
   },
   methods: {
-    ...mapActions(['loadDms']),
-    // wheel(evt){
-    //   console.log(evt.deltaY)
-    //   TweenMax.to(".work",0.8,{
-    //     left: "-="+ evt.deltaY*2+"px"
-    //   })
-    // },
+    ...mapActions(['loadDms','dmOpenOrNot']),
   },
   computed: {
     ...mapGetters(['bgc','fontColor']),
@@ -94,7 +89,6 @@ export default {
     z-index 3
     flexCenter()
     size(70vh,auto)
-    // size(100%,auto)
     padding-bottom 60px
 
   .swiper-slide
@@ -108,6 +102,11 @@ export default {
       background-color rgba(0,0,0,0.5)
       box-shadow 4px 4px 12px rgba(0,0,0,0.5)
       border-radius 8px
+      cursor pointer
+    &.isOpen
+      .cover
+        size(500px,auto)
+    
 
   .swiper-pagination
     span 
