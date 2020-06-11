@@ -20,6 +20,42 @@ import {mapGetters,mapState,mapActions} from 'vuex'
 export default {
   data() {
     return {
+      dms: [
+        {
+          name: "揭密阿卡貝拉",
+          cover: "https://drive.google.com/uc?export=view&id=1HlD4ualiSWZ6TGJTzHFl68ehOhgNjbs4",
+        },
+        {
+          name: "Liar Xmas",
+          cover: "https://drive.google.com/uc?export=view&id=1reXylXZy4aBQfIcj6yRdILVFF9qZ360V",
+        },
+        {
+          name: "2017棒球經典賽轉播",
+          cover: "https://drive.google.com/uc?export=view&id=1YHUdeMwZzwo9ZfH9O6EzCpcI6t0EeZ9X",
+        },
+        {
+          name: "LOL 2016 MSI",
+          cover: "https://drive.google.com/uc?export=view&id=129qZrqvtKgOY9WJcs7K7UwqDod5CZfBP",
+        },
+        {
+          name: "LOL S5世界賽轉播",
+          cover: "https://drive.google.com/uc?export=view&id=1_FmcYafV_Y0jpkIychxEUqwkYFm7FngM",
+          "description": "Blade Runner 2049 is a 2017 American neo-noir science fiction film directed by Denis Villeneuve and written by Hampton Fancher and Michael Green.",
+          "open": false
+        },
+        {
+          name: "MCA場租辦法",
+          cover: "https://drive.google.com/uc?export=view&id=1JA6uHaoeSuszKxMtnh3bdFAyfold5yCt",
+        },
+        {
+          name: "MBC DM",
+          cover: "https://drive.google.com/uc?export=view&id=16zhxtKWsI-qDJ9vGiyua2BbuHDjsfpcn",
+        },
+        {
+          name: "魔法數字學",
+          cover: "https://drive.google.com/uc?export=view&id=1C4iWZDEJGCDCqdDLvMk6t_92bb6Z7xPN",
+        }
+      ],
       swiperOptions: {
         lazy: true,
         spaceBetween: 30,
@@ -56,13 +92,13 @@ export default {
   },
   computed: {
     ...mapGetters(['bgc','fontColor']),
-    ...mapState(['dms']),
+    // ...mapState(['dms']),
     swiper() {
       return this.$refs.mySwiper.$swiper
     }
   },
   mounted() {
-    this.loadDms()
+    // this.loadDms()
     // console.log('Current Swiper instance object', this.swiper)
     this.swiper.slideTo(0, 1000, false)
   }
