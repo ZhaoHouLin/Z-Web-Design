@@ -1,7 +1,6 @@
 <template lang='pug'>
 .app
-  .detail(:class="{isOpen: $store.state.dmOpen}" @click='dmOpenOrNot')
-  //- img.dmCover(@click='dmOpenOrNot')
+  .dmLayer(:class="{isOpen: $store.state.dmOpen}" @click='dmOpenOrNot')
   .frame(:style='boderColor')
     Logo
     RGBtoHex
@@ -56,7 +55,7 @@ export default {
   background-color transparent
   position relative
   flexCenter()
-  .detail
+  .dmLayer
     size(100%,100vh)
     position fixed
     background-color #222
@@ -83,4 +82,5 @@ export default {
 .page-enter,.page-leave-to
   opacity 0
     
+
 </style>

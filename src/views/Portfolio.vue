@@ -142,7 +142,7 @@ export default {
       cursor pointer
     &.isOpen
       .cover
-        size(500px,auto)
+        size(480px,auto)
     
 
   .swiper-pagination
@@ -163,10 +163,25 @@ export default {
       left 24vh
     .swiper-container   
       transform scale(0.8)
+    .swiper-slide
+      &.isOpen
+        .cover
+          transform scale(1)
 
 @media screen and (max-width: 720px)
   .portfolio
     .swiper-container
-      transform scale(0.6)
-      margin 0
+    .swiper-slide
+      &.isOpen
+        .cover
+          size(360px,auto)
+
+@media screen and (max-width: 320px)
+  .portfolio
+    .swiper-slide
+      .cover
+        size(200px,300px)
+      &.isOpen
+        .cover
+          size(300px,auto)
 </style>
