@@ -3,7 +3,7 @@
   .colorAll
     .color(v-for='(color,key,id) in colors')
       span(:style='fontColor') {{key}}
-      input(@mousemove='colorChange(color,id)' @change='colorChange(color,id)' @input='colorChange(color,id)' v-model='colors[key]' type="range" min=0 max=255 step=1 )
+      input(@mousemove='colorChange(color,id)' @change='colorChange(color,id)' @input='colorChange(color,id)' v-model='colors[key]' type="range" min=0 max=255 step=1 orient="vertical")
       label(:style='fontColor') {{color}}
   .colorCode(:style='fontColor') {{colorCode}}
 </template>
