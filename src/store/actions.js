@@ -27,7 +27,7 @@ export default {
   },
   
   loadDms(context) {
-    axios.get('http://localhost:3000/dms')
+    axios.get('https://zz-nuxt.firebaseio.com/dms.json')
       .then(res => {
         context.commit('setDms', res.data)
         // console.log(res)
