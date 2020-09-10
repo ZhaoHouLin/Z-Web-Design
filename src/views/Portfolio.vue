@@ -4,7 +4,7 @@
   swiper(ref='mySwiper' :options='swiperOptions' )
     .swiper-slide(v-for='dm in dms' :class="{isOpen: $store.state.dmOpen}")
       h2(:style='fontColor') {{dm.name}}
-      img.cover.swiper-lazy(v-lazy='dm.cover' @click='dmOpenOrNot' )
+      img.cover.swiper-lazy(:src='dm.cover' @click='dmOpenOrNot' )
       .swiper-lazy-preloader.swiper-lazy-preloader-white
       
     .swiper-pagination(slot='pagination')
