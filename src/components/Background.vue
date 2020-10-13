@@ -16,7 +16,7 @@ import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
-      src: 'http://localhost:8080/DigiCode/index.html'
+      src: 'https://zhaohoulin.github.io/Z-Web-Design/DigiCode/index.html'
     }
   },
   computed: {
