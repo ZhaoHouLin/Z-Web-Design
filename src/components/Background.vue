@@ -1,17 +1,24 @@
 <template lang="pug">
+  
 .bg
-  .blurBg
-  -var j=25
-  .lines
-    -for (var i=0;i<j;i++)
-      .line(:style='shapeStyle')
-      .line2(:style='shapeStyle')
-
+  iframe(:src='src'  ref="iframe")
+  //- .blurBg
+  //- -var j=25
+  //- .lines
+  //-   -for (var i=0;i<j;i++)
+  //-     .line(:style='shapeStyle')
+  //-     .line2(:style='shapeStyle')
+  
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 export default {
+  data() {
+    return {
+      src: 'http://localhost:8080/DigiCode/index.html'
+    }
+  },
   computed: {
     ...mapGetters(['bgc','shapeStyle'])
   }
@@ -24,6 +31,11 @@ export default {
 .bg
   size(100vw,100vh)
   position absolute
+  iframe 
+    size(100%,100vh)
+    position absolute
+    border none
+    // z-index 100
   .blurBg
     size(100vw,100vh)
     background-color #eee
