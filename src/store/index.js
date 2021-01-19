@@ -8,12 +8,12 @@ Vue.use(Vuex)
 
 const state = {
   colors: {
-    R: 255,
-    G: 255,
-    B: 255
+    R: 0,
+    G: 0,
+    B: 0
   },
 
-  colorHexData: ["ff", "ff", "ff"],
+  colorHexData: ["00", "00", "00"],
   hexCode: "#",
   open: false,
   dmOpen: false,

@@ -1,13 +1,11 @@
 <template lang="pug">
-  
 .bg
-  iframe(:src='src'  ref="iframe")
-  //- .blurBg
-  //- -var j=25
-  //- .lines
-  //-   -for (var i=0;i<j;i++)
-  //-     .line(:style='shapeStyle')
-  //-     .line2(:style='shapeStyle')
+  .blurBg
+  -var j=25
+  .lines
+    -for (var i=0;i<j;i++)
+      .line(:style='shapeStyle')
+      .line2(:style='shapeStyle')
   
 </template>
 
@@ -16,7 +14,6 @@ import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
-      src: 'https://zhaohoulin.github.io/Z-Web-Design/DigiCode/index.html'
     }
   },
   computed: {
