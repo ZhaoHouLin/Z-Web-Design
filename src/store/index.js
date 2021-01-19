@@ -18,7 +18,6 @@ const state = {
   open: false,
   dmOpen: false,
   dmCover:'',
-  dms: null,
   width: '',
   height: '',
   bdrs:'',

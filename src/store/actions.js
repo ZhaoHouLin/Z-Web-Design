@@ -26,13 +26,4 @@ export default {
     commit('setCount',count)
   },
   
-  loadDms(context) {
-    axios.get('https://raidennuxt.firebaseio.com/dms.json')
-      .then(res => {
-        context.commit('setDms', res.data)
-        // console.log(res)
-      })
-  },
-
-
 }

@@ -10,9 +10,6 @@ export default {
   dmOpenOrNot(state, turn) {
     state.dmOpen = turn
   },
-  setDms(state,value) {
-    state.dms = value
-  },
   setShape(state, payload) {
     state.width = payload.width
     state.height = payload.height

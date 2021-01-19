@@ -28,11 +28,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['loadDms','dmOpenOrNot']),
+    ...mapActions(['dmOpenOrNot']),
   },
   computed: {
     ...mapGetters(['boderColor']),
-    ...mapState(['dms'])
   },
   mounted() {
     const vm = this
@@ -42,7 +41,6 @@ export default {
       vm.fullWidth = window.innerWidth
       vm.fullHeight = window.innerHeight
     };
-    this.loadDms()
   },
 };
 </script>

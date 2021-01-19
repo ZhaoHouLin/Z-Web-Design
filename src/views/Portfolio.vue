@@ -1,8 +1,10 @@
 <template lang="pug">
 .portfolio
   h1(:style='fontColor') {{$route.name}}
+  .spinner(v-show='!isLoad')
+    .rect(v-for='rec in 5' :style='bgc')
   swiper(ref='mySwiper' :options='swiperOptions' )
-    .swiper-slide(v-for='dm in dms' :class="{isOpen: $store.state.dmOpen}")
+    .swiper-slide(v-for='dm in imgData' :class="{isOpen: $store.state.dmOpen}")
       h2(:style='fontColor') {{dm.name}}
       img.cover.swiper-lazy(:src='dm.cover' @click='dmOpenOrNot' )
       .swiper-lazy-preloader.swiper-lazy-preloader-white
@@ -20,42 +22,6 @@ import {mapGetters,mapState,mapActions} from 'vuex'
 export default {
   data() {
     return {
-      // dms: [
-      //   {
-      //     name: "揭密阿卡貝拉",
-      //     cover: "https://drive.google.com/uc?export=view&id=1HlD4ualiSWZ6TGJTzHFl68ehOhgNjbs4",
-      //   },
-      //   {
-      //     name: "Liar Xmas",
-      //     cover: "https://drive.google.com/uc?export=view&id=1reXylXZy4aBQfIcj6yRdILVFF9qZ360V",
-      //   },
-      //   {
-      //     name: "2017棒球經典賽轉播",
-      //     cover: "https://drive.google.com/uc?export=view&id=1YHUdeMwZzwo9ZfH9O6EzCpcI6t0EeZ9X",
-      //   },
-      //   {
-      //     name: "LOL 2016 MSI",
-      //     cover: "https://drive.google.com/uc?export=view&id=129qZrqvtKgOY9WJcs7K7UwqDod5CZfBP",
-      //   },
-      //   {
-      //     name: "LOL S5世界賽轉播",
-      //     cover: "https://drive.google.com/uc?export=view&id=1_FmcYafV_Y0jpkIychxEUqwkYFm7FngM",
-      //     "description": "Blade Runner 2049 is a 2017 American neo-noir science fiction film directed by Denis Villeneuve and written by Hampton Fancher and Michael Green.",
-      //     "open": false
-      //   },
-      //   {
-      //     name: "MCA場租辦法",
-      //     cover: "https://drive.google.com/uc?export=view&id=1JA6uHaoeSuszKxMtnh3bdFAyfold5yCt",
-      //   },
-      //   {
-      //     name: "MBC DM",
-      //     cover: "https://drive.google.com/uc?export=view&id=16zhxtKWsI-qDJ9vGiyua2BbuHDjsfpcn",
-      //   },
-      //   {
-      //     name: "魔法數字學",
-      //     cover: "https://drive.google.com/uc?export=view&id=1C4iWZDEJGCDCqdDLvMk6t_92bb6Z7xPN",
-      //   }
-      // ],
       swiperOptions: {
         loadPrevNext: true,
         lazy: true,
@@ -86,21 +52,41 @@ export default {
         // },
         // Some Swiper option/callback...
       },
+      imgData: [],
+      isLoad: false
     }
   },
   methods: {
-    ...mapActions(['loadDms','dmOpenOrNot']),
+    ...mapActions(['dmOpenOrNot']),
+    handleImgLoad(imgArr) {
+      let counter = 0
+      let arrData = []
+      for(let image in imgArr) {
+        arrData.push(imgArr[image])
+        const newImg = new Image()    //創建Image的DOM元素
+        newImg.src = imgArr[image].cover
+        newImg.onload = ()=> {
+          counter++
+          if(counter === arrData.length) {
+            this.imgData = arrData
+            this.isLoad = true
+          }
+        }
+      }
+    }
   },
   computed: {
     ...mapGetters(['bgc','fontColor']),
-    ...mapState(['dms']),
     swiper() {
       return this.$refs.mySwiper.$swiper
     }
   },
   mounted() {
-    this.loadDms()
-    // console.log('Current Swiper instance object', this.swiper)
+    axios.get('https://raidennuxt.firebaseio.com/dms.json')
+      .then(res => {
+        this.handleImgLoad(res.data)
+      })
+      
     this.swiper.slideTo(0, 1000, false)
   }
 
@@ -144,7 +130,6 @@ export default {
       .cover
         size(480px,auto)
     
-
   .swiper-pagination
     span 
       background-color rgba(0,0,0,0.5)
@@ -154,6 +139,40 @@ export default {
       transition all 0.3s
       width 20px
       border-radius 8px
+
+.spinner
+  position absolute
+  margin 100px auto
+  width 100px
+  height 60px
+  text-align center
+  font-size 10px
+  & [class^="rect"]
+    background-color #222
+    height 100%
+    width 6px
+    margin 2px
+    display inline-block
+    -webkit-animation sk-stretchdelay 1.2s infinite ease-in-out
+    animation sk-stretchdelay 1.2s infinite ease-in-out
+  for i in 2 3 4 5  
+    div:nth-child({i})
+      -webkit-animation-delay -(1.2-((i - 1) / 10)) * 1s
+      animation-delay -(1.2-((i - 1) / 10)) * 1s
+
+@-webkit-keyframes sk-stretchdelay
+  0%, 40%, 100% 
+    -webkit-transform scaleY(0.4)
+  20%
+    -webkit-transform scaleY(1.0)
+
+@keyframes sk-stretchdelay
+  0%, 40%, 100%
+    transform scaleY(0.4)
+    -webkit-transform scaleY(0.4)
+  20%
+    transform scaleY(1.0)
+    -webkit-transform scaleY(1.0)
 
 
 @media screen and (max-width: 1024px)
