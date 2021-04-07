@@ -98,13 +98,16 @@ export default {
     padding-bottom 36px
     .swiper-slide
       flexCenter()
-      .education,.experience      
+      .education,.experience   
+        h2   
+          color #222
         .info
           flexCenter()
           .senior,.university,.company1,.company2
             size(220px,auto)
             margin 16px
             h3,h4
+              color #222
               margin 8px 0
 
 .swiper-pagination
